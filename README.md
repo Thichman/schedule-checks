@@ -1,6 +1,3 @@
-Here’s the `README.md` file formatted for you to copy and paste directly into your project.
-
-```markdown
 # Website Monitoring Program
 
 This program allows you to monitor websites for visual changes by taking periodic screenshots, comparing them, and notifying you of any changes. You can interact with the program in real-time through various command-line commands while the monitoring is running in the background.
@@ -12,6 +9,8 @@ This program allows you to monitor websites for visual changes by taking periodi
 - [How to Run the Program](#how-to-run-the-program)
 - [Available Commands](#available-commands)
 - [Examples](#examples)
+- [Packaging and Distribution](#packaging-and-distribution)
+- [Notes](#notes)
 
 ---
 
@@ -45,7 +44,7 @@ This program allows you to monitor websites for visual changes by taking periodi
    cd website-check-program
    ```
 
-3. **Create a virtual environment** (optional, but recommended):
+3. **Create a virtual environment (optional but recommended)**:
    ```bash
    python3 -m venv website_monitor_env
    ```
@@ -88,6 +87,11 @@ Once you've completed the setup, you can start the program:
    ```
 
 The program will start monitoring websites that you add, but you can also run commands in real-time while the program is running.
+
+You can also start the program by providing an initial URL to monitor:
+   ```bash
+   python main.py https://example.com
+   ```
 
 ---
 
@@ -167,6 +171,45 @@ The following commands can be used to interact with the program:
 
 ---
 
+## Packaging and Distribution
+
+### Packaging the Project for Sharing
+
+If you want to share this project with someone else, follow these steps:
+
+1. **Create a `requirements.txt` file**:
+   ```bash
+   pip freeze > requirements.txt
+   ```
+
+2. **Zip the project folder**:
+   After ensuring all the necessary files (`main.py`, `requirements.txt`, `README.md`) are in the project directory, zip the project:
+   ```bash
+   zip -r website-monitor.zip .
+   ```
+
+3. **Send the zip file** to the recipient. They can unzip it and follow the instructions in this README to set up and run the program.
+
+### Option: Create a Standalone Executable with PyInstaller
+
+To make it even easier for someone to run the program without needing Python installed, you can create a standalone executable using **PyInstaller**.
+
+#### Steps to create an executable:
+
+1. **Install PyInstaller**:
+   ```bash
+   pip install pyinstaller
+   ```
+
+2. **Create the executable**:
+   ```bash
+   pyinstaller --onefile main.py
+   ```
+
+   This will generate a `dist/` folder containing a single executable file. You can send this file to others, and they can run it without needing Python or any dependencies installed.
+
+---
+
 ## How the Program Works
 
 1. **Initial Setup**:
@@ -203,5 +246,7 @@ This project is licensed under the MIT License.
 Feel free to modify the program as needed or contact the developer for more details.
 ```
 
----
+### Changes Added:
+- **Packaging and Distribution Section**: Instructions for packaging the project and creating a standalone executable using PyInstaller.
+- **Clarified Installation and Running**: Added command for running the program with a URL directly from the command line.
 
